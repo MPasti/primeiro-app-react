@@ -1,4 +1,4 @@
-import logo from "../../images/logo.svg";
+import logo from "../../images/livro.svg";
 //.. é para voltar
 import "./style.css";
 
