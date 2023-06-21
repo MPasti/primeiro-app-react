@@ -1,18 +1,34 @@
 import perfil from "../../images/perfil.svg";
 import sacola from "../../images/sacola.svg";
-import "./style.css";
+import styled from "styled-components";
 
-const icones = [perfil, sacola];
+const Icone = styled.li`
+  margin-right: 80px;
+`;
+
+const Lista = styled.ul`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+`;
+
+//transformou em objeto pois estava dando erro nas keys, pos quando cria uma lista precisa de uma
+//tudo que há um sistema de repetição precisa de uma key (id)
+const icones = [
+  { key: 1, img: perfil },
+  { key: 2, img: sacola },
+];
 
 function Icons() {
   return (
-    <ul className="icones">
+    <Lista>
       {icones.map((e) => (
-        <li>
-          <img className="icon-header" src={e} alt="icon-header"></img>
-        </li>
+        <Icone key={e.key}>
+          <img src={e.img} alt="icon-header"></img>
+        </Icone>
       ))}
-    </ul>
+    </Lista>
   );
 }
 

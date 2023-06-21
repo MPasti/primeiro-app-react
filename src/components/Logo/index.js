@@ -1,16 +1,27 @@
 import logo from "../../images/livro.svg";
 //.. é para voltar
-import "./style.css";
+import styled from "styled-components";
+
+const LogoContainer = styled.div`
+  display: flex;
+  font-size: 30px;
+  cursor: default;
+`;
+
+const LogoImg = styled.img`
+  margin-right: 10px;
+  color: #ff0000;
+`;
 
 function Logo() {
   return (
-    <div className="logo">
-      <img className="logo-img" src={logo} alt="logo do site"></img>
-      <p className="titulo-logo">
+    <LogoContainer>
+      <LogoImg src={logo} alt="logo do site" />
+      <p style={{ color: "#ff0000" }}>
         {" "}
         <strong>Pasti</strong>Books{" "}
       </p>
-    </div>
+    </LogoContainer>
   );
 }
 
