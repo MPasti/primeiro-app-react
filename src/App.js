@@ -1,5 +1,6 @@
 import Header from "./components/Header/index";
 import styled from "styled-components";
+import Pesquisa from "./components/Pesquisar";
 
 //criamos o estilo dentro deste container do styled
 //ele é um componente como cada componente do js, ele é usado igual a um componente
@@ -10,13 +11,14 @@ import styled from "styled-components";
 const AppContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(80deg, #f75353 50%, #f70f0f);
+  background-image: linear-gradient(180deg, #000 50%, #f70f0f);
 `;
 
 function App() {
   return (
     <AppContainer>
       <Header />
+      <Pesquisa />
     </AppContainer>
   );
 }
