@@ -1,6 +1,7 @@
 import Input from "../Input";
 import styled from "styled-components";
 import { useState } from "react";
+import { livros } from "./dadosPesquisa";
 
 //background-image: linear-gradient(180deg, #000 35%, #fa4b4e);
 const PesquisaContainer = styled.section`
@@ -25,7 +26,7 @@ const Subtitulo = styled.h3`
 `;
 
 function Pesquisar() {
-  const [textoDigitado, setTextoDigitado] = useState("");
+  const [livroDigitado, setLivroPesquisado] = useState();
   //para atualizar o valor sem precisar dar refresh
   //seu parametro inicial pode ser qualquer coisa, mas ele vai ser o "", por ser uma string
 
@@ -34,10 +35,15 @@ function Pesquisar() {
       <Titulo>Já sabe por onde começar?</Titulo>
       <Subtitulo>Encontre seu livro em nossa estante</Subtitulo>
       <Input
-        onBlur={(e) => setTextoDigitado(e.target.value)}
+        onBlur={(e) => {
+          const textoDigitado = e.target.value;
+          const resultadoPesquisa = livros.filter((livro) =>
+            livro.nome.includes(textoDigitado)
+          );
+          //o filter fltra os nomes de livros que encaixam com o texto digitado, vai filtrar cada um
+        }}
         placeholder="Pesquise sua proxima leitura"
       />
-      <p>{textoDigitado}</p>
     </PesquisaContainer>
   );
 }
