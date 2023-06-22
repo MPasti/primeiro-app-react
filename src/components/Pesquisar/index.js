@@ -26,6 +26,7 @@ const Subtitulo = styled.h3`
 
 function Pesquisar() {
   const [textoDigitado, setTextoDigitado] = useState("");
+  //para atualizar o valor sem precisar dar refresh
   //seu parametro inicial pode ser qualquer coisa, mas ele vai ser o "", por ser uma string
 
   return (
@@ -35,7 +36,8 @@ function Pesquisar() {
       <Input
         onBlur={(e) => setTextoDigitado(e.target.value)}
         placeholder="Pesquise sua proxima leitura"
-      ></Input>
+      />
+      <p>{textoDigitado}</p>
     </PesquisaContainer>
   );
 }
