@@ -25,8 +25,25 @@ const Subtitulo = styled.h3`
   margin-bottom: 40px;
 `;
 
+const Resultado = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  p {
+    width: 200px;
+  }
+  img {
+    width: 100px;
+  }
+  &:hover {
+    border: 1px solid white;
+  }
+`;
+
 function Pesquisar() {
-  const [livroDigitado, setLivroPesquisado] = useState();
+  const [livrosPesquisados, setLivrosPesquisados] = useState([]);
   //para atualizar o valor sem precisar dar refresh
   //seu parametro inicial pode ser qualquer coisa, mas ele vai ser o "", por ser uma string
 
@@ -35,15 +52,29 @@ function Pesquisar() {
       <Titulo>Já sabe por onde começar?</Titulo>
       <Subtitulo>Encontre seu livro em nossa estante</Subtitulo>
       <Input
-        onBlur={(e) => {
-          const textoDigitado = e.target.value;
+        placeholder="Pesquise sua proxima leitura"
+        onChange={(e) => {
+          const textoMin = e.target.value.toLowerCase();
+          //para deixar em lowercase e achar independente do case sensitive
+          // const textoDigitado = e.target.value;
           const resultadoPesquisa = livros.filter((livro) =>
-            livro.nome.includes(textoDigitado)
+            livro.nome.includes(textoMin)
           );
+          setLivrosPesquisados(resultadoPesquisa);
+          console.log(resultadoPesquisa);
+          //ele vai retornar os livros que possuem o conjunto de palavras semelhante, mas é case sensitive
           //o filter fltra os nomes de livros que encaixam com o texto digitado, vai filtrar cada um
         }}
-        placeholder="Pesquise sua proxima leitura"
       />
+      {
+        //vamos usar o estado da página
+      }
+      {livrosPesquisados.map((e) => (
+        <Resultado key={e.key}>
+          <img src={e.src} alt="imagem do livro"></img>
+          <p>{e.nome}</p>
+        </Resultado>
+      ))}
     </PesquisaContainer>
   );
 }

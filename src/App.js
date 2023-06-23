@@ -1,6 +1,7 @@
 import Header from "./components/Header/index";
 import styled from "styled-components";
 import Pesquisa from "./components/Pesquisar";
+import Lancamentos from "./components/Lancamentos";
 
 //criamos o estilo dentro deste container do styled
 //ele é um componente como cada componente do js, ele é usado igual a um componente
@@ -19,6 +20,7 @@ function App() {
     <AppContainer>
       <Header />
       <Pesquisa />
+      <Lancamentos />
     </AppContainer>
   );
 }

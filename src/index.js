@@ -8,7 +8,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 body {
-  background-image: linear-gradient(30deg, #fa4b4e 50%, #f70f0f);
+  background: linear-gradient(-0deg, #f70f0f 50%, #f70f0f, #f70f0f);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
